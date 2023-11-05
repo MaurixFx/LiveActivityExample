@@ -23,6 +23,8 @@
 		D5BE72342AF7EC500077A86A /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE72332AF7EC500077A86A /* AppIntent.swift */; };
 		D5BE72362AF7EC520077A86A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BE72352AF7EC520077A86A /* Assets.xcassets */; };
 		D5BE723A2AF7EC520077A86A /* LiveActivityLockScreenExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D5BE72262AF7EC500077A86A /* LiveActivityLockScreenExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D5BE723F2AF7F4200077A86A /* LiveActivityLockScreenLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE722F2AF7EC500077A86A /* LiveActivityLockScreenLiveActivity.swift */; };
+		D5BE72412AF80FF00077A86A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE72402AF80FF00077A86A /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,7 @@
 		D5BE72332AF7EC500077A86A /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		D5BE72352AF7EC520077A86A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5BE72372AF7EC520077A86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5BE72402AF80FF00077A86A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 			children = (
 				D5BE72212AF7E9230077A86A /* LiveActivityExample.entitlements */,
 				D5BE72012AF7DE220077A86A /* LiveActivityExampleApp.swift */,
+				D5BE72402AF80FF00077A86A /* AppDelegate.swift */,
 				D5BE72032AF7DE220077A86A /* ContentView.swift */,
 				D5BE72052AF7DE240077A86A /* Assets.xcassets */,
 				D5BE72072AF7DE240077A86A /* Preview Content */,
@@ -262,8 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BE72412AF80FF00077A86A /* AppDelegate.swift in Sources */,
 				D5BE72042AF7DE220077A86A /* ContentView.swift in Sources */,
 				D5BE72022AF7DE220077A86A /* LiveActivityExampleApp.swift in Sources */,
+				D5BE723F2AF7F4200077A86A /* LiveActivityLockScreenLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

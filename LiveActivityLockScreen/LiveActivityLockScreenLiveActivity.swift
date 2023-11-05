@@ -12,7 +12,7 @@ import SwiftUI
 struct LiveActivityLockScreenAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
-        var emoji: String
+        var message: String
     }
 
     // Fixed non-changing properties about your activity go here!
@@ -24,7 +24,7 @@ struct LiveActivityLockScreenLiveActivity: Widget {
         ActivityConfiguration(for: LiveActivityLockScreenAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                Text("Hello \(context.state.emoji)")
+                Text("Hello \(context.state.message)")
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -40,15 +40,15 @@ struct LiveActivityLockScreenLiveActivity: Widget {
                     Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.emoji)")
+                    Text("Bottom \(context.state.message)")
                     // more content
                 }
             } compactLeading: {
                 Text("L")
             } compactTrailing: {
-                Text("T \(context.state.emoji)")
+                Text("T \(context.state.message)")
             } minimal: {
-                Text(context.state.emoji)
+                Text(context.state.message)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -64,11 +64,11 @@ extension LiveActivityLockScreenAttributes {
 
 extension LiveActivityLockScreenAttributes.ContentState {
     fileprivate static var smiley: LiveActivityLockScreenAttributes.ContentState {
-        LiveActivityLockScreenAttributes.ContentState(emoji: "😀")
+        LiveActivityLockScreenAttributes.ContentState(message: "😀")
      }
      
      fileprivate static var starEyes: LiveActivityLockScreenAttributes.ContentState {
-         LiveActivityLockScreenAttributes.ContentState(emoji: "🤩")
+         LiveActivityLockScreenAttributes.ContentState(message: "🤩")
      }
 }
 
