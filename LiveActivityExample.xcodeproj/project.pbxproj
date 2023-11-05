@@ -11,6 +11,10 @@
 		D5BE72042AF7DE220077A86A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BE72032AF7DE220077A86A /* ContentView.swift */; };
 		D5BE72062AF7DE240077A86A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BE72052AF7DE240077A86A /* Assets.xcassets */; };
 		D5BE72092AF7DE240077A86A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5BE72082AF7DE240077A86A /* Preview Assets.xcassets */; };
+		D5BE721A2AF7E4E80077A86A /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = D5BE72192AF7E4E80077A86A /* OneSignalExtension */; };
+		D5BE721C2AF7E4E80077A86A /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = D5BE721B2AF7E4E80077A86A /* OneSignalFramework */; };
+		D5BE721E2AF7E4E80077A86A /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = D5BE721D2AF7E4E80077A86A /* OneSignalInAppMessages */; };
+		D5BE72202AF7E4E80077A86A /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = D5BE721F2AF7E4E80077A86A /* OneSignalLocation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5BE721E2AF7E4E80077A86A /* OneSignalInAppMessages in Frameworks */,
+				D5BE721C2AF7E4E80077A86A /* OneSignalFramework in Frameworks */,
+				D5BE72202AF7E4E80077A86A /* OneSignalLocation in Frameworks */,
+				D5BE721A2AF7E4E80077A86A /* OneSignalExtension in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +91,12 @@
 			dependencies = (
 			);
 			name = LiveActivityExample;
+			packageProductDependencies = (
+				D5BE72192AF7E4E80077A86A /* OneSignalExtension */,
+				D5BE721B2AF7E4E80077A86A /* OneSignalFramework */,
+				D5BE721D2AF7E4E80077A86A /* OneSignalInAppMessages */,
+				D5BE721F2AF7E4E80077A86A /* OneSignalLocation */,
+			);
 			productName = LiveActivityExample;
 			productReference = D5BE71FE2AF7DE220077A86A /* LiveActivityExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +125,9 @@
 				Base,
 			);
 			mainGroup = D5BE71F52AF7DE220077A86A;
+			packageReferences = (
+				D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+			);
 			productRefGroup = D5BE71FF2AF7DE220077A86A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +361,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D5BE72192AF7E4E80077A86A /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		D5BE721B2AF7E4E80077A86A /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		D5BE721D2AF7E4E80077A86A /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		D5BE721F2AF7E4E80077A86A /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5BE72182AF7E4E80077A86A /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D5BE71F62AF7DE220077A86A /* Project object */;
 }
