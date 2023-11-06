@@ -10,7 +10,8 @@ import SwiftUI
 
 struct MatchScoreView: View {
     let match: Match
-    let scoreText: String
+    let localScoreText: String
+    let awayScoreText: String
     
     var body: some View {
         VStack(alignment: .center) {
@@ -29,9 +30,19 @@ struct MatchScoreView: View {
                 Spacer()
                 
                 VStack(spacing: 10) {
-                    Text(scoreText)
-                        .font(.largeTitle)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    HStack {
+                        Text(localScoreText)
+                            .font(.largeTitle)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        
+                        Text("-")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        
+                        Text(awayScoreText)
+                            .font(.largeTitle)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    }
                     
                     Text(timerInterval: match.timer, countsDown: true)
                         .multilineTextAlignment(.center)

@@ -14,7 +14,9 @@ struct LiveActivityLockScreenLiveActivity: Widget {
         ActivityConfiguration(for: MatchActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                MatchScoreView(match: context.attributes.match, scoreText: context.state.scoreText)
+                MatchScoreView(match: context.attributes.match, 
+                               localScoreText: context.state.localScoreText,
+                               awayScoreText: context.state.awayScoreText)
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -30,15 +32,15 @@ struct LiveActivityLockScreenLiveActivity: Widget {
                     Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.scoreText)")
+                    Text("Bottom \(context.state.localScoreText)")
                     // more content
                 }
             } compactLeading: {
                 Text("L")
             } compactTrailing: {
-                Text("T \(context.state.scoreText)")
+                Text("T \(context.state.awayScoreText)")
             } minimal: {
-                Text(context.state.scoreText)
+                Text(context.state.localScoreText)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
