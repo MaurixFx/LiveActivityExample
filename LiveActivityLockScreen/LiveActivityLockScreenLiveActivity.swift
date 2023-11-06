@@ -16,8 +16,7 @@ struct LiveActivityLockScreenAttributes: ActivityAttributes {
     }
 
     // Fixed non-changing properties about your activity go here!
-    var localTeamName: String
-    var awayTeamName: String
+    let match: Match
 }
 
 struct MatchScoreView: View {
@@ -26,28 +25,32 @@ struct MatchScoreView: View {
     var body: some View {
         HStack {
             VStack {
-                Image(systemName: "wifi.slash")
+                Image(context.attributes.match.localTeamImage)
                     .resizable()
-                    .frame(width: 60, height: 60)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
                 
-                Text(context.attributes.localTeamName)
-                    .font(.headline)
+                Text(context.attributes.match.localTeamName)
+                    .font(.system(size: 12))
                     .fontWeight(.medium)
             }
+            .frame(height: 90)
+            .padding()
             
             Text(context.state.scoreText)
-                .font(.largeTitle)
+                .font(.title)
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Image(systemName: "wifi.slash")
-                    .resizable()
-                    .frame(width: 60, height: 60)
+                Image(context.attributes.match.awayTeamImage)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
                 
-                Text(context.attributes.awayTeamName)
-                    .font(.headline)
+                Text(context.attributes.match.awayTeamName)
+                    .font(.system(size: 12))
                     .fontWeight(.medium)
             }
+            .padding()
         }
     }
 }
@@ -89,11 +92,9 @@ struct LiveActivityLockScreenLiveActivity: Widget {
     }
 }
 
-extension LiveActivityLockScreenAttributes {
+/*extension LiveActivityLockScreenAttributes {
     fileprivate static var preview: LiveActivityLockScreenAttributes {
-        LiveActivityLockScreenAttributes(
-            localTeamName: "Colo-Colo",
-            awayTeamName: "U. de Chile")
+        LiveActivityLockScreenAttributes()
     }
 }
 
@@ -112,4 +113,4 @@ extension LiveActivityLockScreenAttributes.ContentState {
 } contentStates: {
     LiveActivityLockScreenAttributes.ContentState.smiley
     LiveActivityLockScreenAttributes.ContentState.starEyes
-}
+}*/
