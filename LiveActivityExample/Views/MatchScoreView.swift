@@ -44,7 +44,7 @@ struct MatchScoreView: View {
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     }
                     
-                    Text(timerInterval: match.timer, countsDown: true)
+                    Text(timerInterval: match.timer, countsDown: false)
                         .multilineTextAlignment(.center)
                         .frame(width: 40)
                         .font(.caption2)
