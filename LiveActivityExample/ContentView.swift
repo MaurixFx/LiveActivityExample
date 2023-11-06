@@ -22,7 +22,10 @@ struct ContentView: View {
     }
     
     private func startLiveActivity() {
-        let match = Match(localTeamName: "Colo Colo",
+        let future = Calendar.current.date(byAdding: .minute, value: 15, to: Date()) ?? Date()
+        
+        let match = Match(timer: Date.now...future,
+                          localTeamName: "Colo Colo",
                           localTeamImage: "colocolo",
                           awayTeamName: "Boca Juniors",
                           awayTeamImage: "boca")
