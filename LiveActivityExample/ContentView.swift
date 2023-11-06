@@ -22,7 +22,11 @@ struct ContentView: View {
     }
     
     private func startLiveActivity() {
-        let attributes = LiveActivityLockScreenAttributes(localTeamName: "Colo-Colo", awayTeamName: "Boca Jrs")
+        let match = Match(localTeamName: "Colo Colo",
+                          localTeamImage: "colocolo",
+                          awayTeamName: "Boca Juniors",
+                          awayTeamImage: "boca")
+        let attributes = LiveActivityLockScreenAttributes(match: match)
         let contentState = LiveActivityLockScreenAttributes.ContentState(scoreText: "2-0")
         
         let activityContent = ActivityContent(state: contentState, staleDate: Calendar.current.date(byAdding: .hour, value: 3, to: Date())!)

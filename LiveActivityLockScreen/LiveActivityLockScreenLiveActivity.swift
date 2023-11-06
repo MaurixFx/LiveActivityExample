@@ -16,8 +16,7 @@ struct LiveActivityLockScreenAttributes: ActivityAttributes {
     }
 
     // Fixed non-changing properties about your activity go here!
-    var localTeamName: String
-    var awayTeamName: String
+    var match: Match
 }
 
 struct MatchScoreView: View {
@@ -26,11 +25,12 @@ struct MatchScoreView: View {
     var body: some View {
         HStack {
             VStack {
-                Image(systemName: "wifi.slash")
+                Image(context.attributes.match.localTeamImage)
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 60, height: 60)
                 
-                Text(context.attributes.localTeamName)
+                Text(context.attributes.match.localTeamName)
                     .font(.headline)
                     .fontWeight(.medium)
             }
@@ -40,11 +40,12 @@ struct MatchScoreView: View {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             
             VStack {
-                Image(systemName: "wifi.slash")
+                Image(context.attributes.match.awayTeamImage)
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: 60, height: 60)
                 
-                Text(context.attributes.awayTeamName)
+                Text(context.attributes.match.awayTeamName)
                     .font(.headline)
                     .fontWeight(.medium)
             }
@@ -91,9 +92,11 @@ struct LiveActivityLockScreenLiveActivity: Widget {
 
 extension LiveActivityLockScreenAttributes {
     fileprivate static var preview: LiveActivityLockScreenAttributes {
-        LiveActivityLockScreenAttributes(
-            localTeamName: "Colo-Colo",
-            awayTeamName: "U. de Chile")
+        LiveActivityLockScreenAttributes(match: Match(
+            localTeamName: "Colo Colo",
+            localTeamImage: "colocolo",
+            awayTeamName: "Boca Juniors",
+            awayTeamImage: "boca"))
     }
 }
 
