@@ -29,15 +29,15 @@ struct ContentView: View {
                           localTeamImage: "colocolo",
                           awayTeamName: "Boca Juniors",
                           awayTeamImage: "boca")
-        let attributes = LiveActivityLockScreenAttributes(match: match)
-        let contentState = LiveActivityLockScreenAttributes.ContentState(scoreText: "2-0")
+        let attributes = MatchActivityAttributes(match: match)
+        let contentState = MatchActivityAttributes.ContentState(scoreText: "2-0")
         
         let activityContent = ActivityContent(state: contentState, staleDate: Calendar.current.date(byAdding: .hour, value: 3, to: Date())!)
 
         do {
 
             let activity = try
-            Activity<LiveActivityLockScreenAttributes>.request(
+            Activity<MatchActivityAttributes>.request(
                     attributes: attributes,
                     content: activityContent,
                     pushType: .token)
