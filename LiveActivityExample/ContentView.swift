@@ -22,8 +22,8 @@ struct ContentView: View {
     }
     
     private func startLiveActivity() {
-        let attributes = LiveActivityLockScreenAttributes(name: "OneSignal Dev App Live Activity")
-        let contentState = LiveActivityLockScreenAttributes.ContentState(message: "Live Activities")
+        let attributes = LiveActivityLockScreenAttributes(localTeamName: "Colo-Colo", awayTeamName: "Boca Jrs")
+        let contentState = LiveActivityLockScreenAttributes.ContentState(scoreText: "2-0")
         
         let activityContent = ActivityContent(state: contentState, staleDate: Calendar.current.date(byAdding: .hour, value: 3, to: Date())!)
 

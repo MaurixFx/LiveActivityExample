@@ -12,11 +12,44 @@ import SwiftUI
 struct LiveActivityLockScreenAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         // Dynamic stateful properties about your activity go here!
-        var message: String
+        var scoreText: String
     }
 
     // Fixed non-changing properties about your activity go here!
-    var name: String
+    var localTeamName: String
+    var awayTeamName: String
+}
+
+struct MatchScoreView: View {
+    let context: ActivityViewContext<LiveActivityLockScreenAttributes>
+    
+    var body: some View {
+        HStack {
+            VStack {
+                Image(systemName: "wifi.slash")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                
+                Text(context.attributes.localTeamName)
+                    .font(.headline)
+                    .fontWeight(.medium)
+            }
+            
+            Text(context.state.scoreText)
+                .font(.largeTitle)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            
+            VStack {
+                Image(systemName: "wifi.slash")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                
+                Text(context.attributes.awayTeamName)
+                    .font(.headline)
+                    .fontWeight(.medium)
+            }
+        }
+    }
 }
 
 struct LiveActivityLockScreenLiveActivity: Widget {
@@ -24,7 +57,7 @@ struct LiveActivityLockScreenLiveActivity: Widget {
         ActivityConfiguration(for: LiveActivityLockScreenAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                Text("Hello \(context.state.message)")
+                MatchScoreView(context: context)
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
@@ -40,15 +73,15 @@ struct LiveActivityLockScreenLiveActivity: Widget {
                     Text("Trailing")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    Text("Bottom \(context.state.message)")
+                    Text("Bottom \(context.state.scoreText)")
                     // more content
                 }
             } compactLeading: {
                 Text("L")
             } compactTrailing: {
-                Text("T \(context.state.message)")
+                Text("T \(context.state.scoreText)")
             } minimal: {
-                Text(context.state.message)
+                Text(context.state.scoreText)
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
@@ -58,17 +91,19 @@ struct LiveActivityLockScreenLiveActivity: Widget {
 
 extension LiveActivityLockScreenAttributes {
     fileprivate static var preview: LiveActivityLockScreenAttributes {
-        LiveActivityLockScreenAttributes(name: "World")
+        LiveActivityLockScreenAttributes(
+            localTeamName: "Colo-Colo",
+            awayTeamName: "U. de Chile")
     }
 }
 
 extension LiveActivityLockScreenAttributes.ContentState {
     fileprivate static var smiley: LiveActivityLockScreenAttributes.ContentState {
-        LiveActivityLockScreenAttributes.ContentState(message: "😀")
+        LiveActivityLockScreenAttributes.ContentState(scoreText: "2-1")
      }
      
      fileprivate static var starEyes: LiveActivityLockScreenAttributes.ContentState {
-         LiveActivityLockScreenAttributes.ContentState(message: "🤩")
+         LiveActivityLockScreenAttributes.ContentState(scoreText: "3-0")
      }
 }
 
