@@ -22,22 +22,7 @@ struct ContentView: View {
     }
     
     private func startLiveActivity() {
-        guard let localImageData = UIImage(named: "colocolo")?.jpegData(compressionQuality: 0.5) else {
-            return
-        }
-        
-        guard let awayImageData = UIImage(named: "uchile")?.jpegData(compressionQuality: 0.5) else {
-            return
-        }
-
-        let match = Match(
-            localTeamName: "Colo-Colo",
-            localTeamImage: "colocolo",
-            awayTeamName: "Boca Juniors",
-            awayTeamImage: "boca")
-        
-        
-        let attributes = LiveActivityLockScreenAttributes(match: match)
+        let attributes = LiveActivityLockScreenAttributes(localTeamName: "Colo-Colo", awayTeamName: "Boca Jrs")
         let contentState = LiveActivityLockScreenAttributes.ContentState(scoreText: "2-0")
         
         let activityContent = ActivityContent(state: contentState, staleDate: Calendar.current.date(byAdding: .hour, value: 3, to: Date())!)
