@@ -12,7 +12,9 @@ struct MatchScoreView: View {
     let match: Match
     let localScoreText: String
     let awayScoreText: String
-    
+    let matchEventType: MatchEventType
+    let matchEventDescription: String
+
     var body: some View {
         VStack(alignment: .center) {
             HStack {
@@ -64,7 +66,35 @@ struct MatchScoreView: View {
                         .fontWeight(.bold)
                 }
             }
+
+            if matchEventType != .none {
+                Spacer()
+
+                VStack {
+                    HStack {
+                        Image(matchEventImageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
+
+                        Text(matchEventDescription)
+                            .font(.caption)
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    }
+                }
+            }
         }
         .padding()
+    }
+
+    private var matchEventImageName: String {
+        switch matchEventType {
+        case .none:
+            return ""
+        case .goal:
+            return "goal"
+        case .redCard:
+            return "redCard"
+        }
     }
 }

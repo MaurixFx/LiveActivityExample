@@ -14,9 +14,11 @@ struct LiveActivityLockScreenLiveActivity: Widget {
         ActivityConfiguration(for: MatchActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack {
-                MatchScoreView(match: context.attributes.match, 
+                MatchScoreView(match: context.attributes.match,
                                localScoreText: context.state.localScoreText,
-                               awayScoreText: context.state.awayScoreText)
+                               awayScoreText: context.state.awayScoreText,
+                               matchEventType: context.state.matchEventType,
+                               matchEventDescription: context.state.matchEventDescription)
             }
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)

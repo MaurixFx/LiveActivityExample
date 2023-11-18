@@ -30,7 +30,7 @@ struct ContentView: View {
                           awayTeamName: "Boca Juniors",
                           awayTeamImage: "boca")
         let attributes = MatchActivityAttributes(match: match)
-        let contentState = MatchActivityAttributes.ContentState(localScoreText: "0", awayScoreText: "0")
+        let contentState = MatchActivityAttributes.ContentState(localScoreText: "0", awayScoreText: "0", matchEventType: .none, matchEventDescription: "")
         
         let activityContent = ActivityContent(state: contentState, staleDate: Calendar.current.date(byAdding: .hour, value: 3, to: Date())!)
 
@@ -46,7 +46,7 @@ struct ContentView: View {
 
                 for await data in activity.pushTokenUpdates {
                     let myToken = data.map {String(format: "%02x", $0)}.joined()
-                    OneSignal.LiveActivities.enter("my_activity_id", withToken: myToken)
+                    OneSignal.LiveActivities.enter("live_activity_id", withToken: myToken)
                 }
             }
 
