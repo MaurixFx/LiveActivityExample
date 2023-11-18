@@ -5,6 +5,10 @@ Football match score LiveActivity widget example using OneSignal service.
 
 <img src="https://github.com/MaurixFx/LiveActivityExample/assets/28694208/6ba13ac0-be17-4026-9258-eb1a6a10e931" width= 250 />
 
+
+https://github.com/MaurixFx/LiveActivityExample/assets/28694208/4e0cab24-94dc-4ead-9b90-7db6cb95ae3e
+
+
 &nbsp;
 # How to configure OneSignal SDK in your project
 Please follow the steps on [ONESignal documentation](https://documentation.onesignal.com/docs/how-to-create-and-update-a-live-activity)
